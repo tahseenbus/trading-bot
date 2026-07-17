@@ -1,0 +1,13 @@
+# Downloaded price history — re-fetched as needed, no need to store in git.
+cache/
+
+# Python bytecode.
+__pycache__/
+*.pyc
+
+# Local editor / tooling config — not part of the bot.
+.claude/
+
+# NOTE: state.json and trades.csv are intentionally NOT ignored.
+# The GitHub Actions workflow commits them so the bot remembers its
+# portfolio and trade history between scheduled runs.
