@@ -8,10 +8,11 @@ name: Paper Trade
 
 on:
   schedule:
-    # Every hour, on the hour (UTC). GitHub may delay this a few minutes
-    # under load -- fine on hourly candles. Change the cron to trade more
-    # or less often, e.g. '*/15 * * * *' for every 15 minutes.
-    - cron: "0 * * * *"
+    # Once an hour at :23 past (UTC). Deliberately NOT on the hour --
+    # top-of-hour crons are the most likely to be delayed or dropped by
+    # GitHub under load. Change to trade more/less often, e.g.
+    # '*/15 * * * *' for every 15 minutes.
+    - cron: "23 * * * *"
   # Lets you trigger a run by hand from the repo's "Actions" tab.
   workflow_dispatch:
 
@@ -41,6 +42,9 @@ jobs:
 
       - name: Run one trading check (hourly candles)
         run: python paper_trade.py --iterations 1 --timeframe 1h
+
+      - name: Champion/Challenger -- all strategies compete in parallel
+        run: python champion.py --iterations 1 --timeframe 1h
 
       - name: Commit the updated portfolio back to the repo
         run: |

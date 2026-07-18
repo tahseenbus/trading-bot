@@ -221,6 +221,51 @@ def add_indicators(candles: pd.DataFrame, name: str | None = None) -> pd.DataFra
     return df
 
 
+# --------------------------------------------------- fees and fill model
+
+def entry_fill(price: float) -> tuple[float, float]:
+    """(fill_price, fee_rate) for a buy.
+
+    Maker mode: a resting limit order at the signal price -- no slippage
+    and the cheaper maker fee. Otherwise: market order with slippage at
+    the taker fee. (Real maker orders can miss fills in fast markets;
+    that risk isn't modeled -- one reason to keep expectations modest.)
+    """
+    if config.USE_MAKER:
+        return price, config.MAKER_FEE
+    return price * (1 + config.SLIPPAGE), config.TAKER_FEE
+
+
+def exit_fill(price: float, is_stop: bool) -> tuple[float, float]:
+    """(fill_price, fee_rate) for a sell. A stop-loss must execute NOW,
+    so it's always a market (taker) order with slippage. A take-profit
+    can rest as a limit (maker) order when maker mode is on."""
+    if config.USE_MAKER and not is_stop:
+        return price, config.MAKER_FEE
+    return price * (1 - config.SLIPPAGE), config.TAKER_FEE
+
+
+# --------------------------------------- multi-timeframe trend filter
+
+def trend_filter_mask(index, trend_candles: pd.DataFrame) -> pd.Series:
+    """For each candle time in `index`, True if the higher-timeframe
+    trend allowed buying at that moment (daily close above its SMA)."""
+    sma_htf = trend_candles["close"].rolling(config.TREND_FILTER_SMA).mean()
+    ok = trend_candles["close"] > sma_htf
+    return ok.reindex(index, method="ffill").fillna(False)
+
+
+def trend_allows_entry() -> bool:
+    """Live check for the paper traders: is the daily trend up right now?"""
+    if not config.TREND_FILTER:
+        return True
+    from data import fetch_candles  # local import avoids cycles at startup
+    trend = fetch_candles(config.TREND_FILTER_TIMEFRAME,
+                          limit=config.TREND_FILTER_SMA + 10)
+    sma = trend["close"].rolling(config.TREND_FILTER_SMA).mean()
+    return bool(trend["close"].iloc[-1] > sma.iloc[-1])
+
+
 # ------------------------------------------------- shared loss management
 
 def stop_and_target(entry_price: float, atr_value: float) -> tuple[float, float]:

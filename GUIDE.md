@@ -30,9 +30,11 @@ That's it. No accounts, no API keys, no sign-ups.
 | `backtest.py` | Tests strategies against real price history. |
 | `paper_trade.py` | Trades live prices with fake money. |
 | `report.py` | Shows how your paper trading has gone overall. |
+| `champion.py` | ALL strategies paper trade in parallel; leaderboard shows who earns. |
 | `data.py` | Downloads price data (run directly to test your connection). |
 | `trades.csv` | Log of every paper trade (created automatically). |
 | `state.json` | The paper trader's memory between restarts (automatic). |
+| `portfolios.json` / `champion_trades.csv` | The champion race's memory and trade log. |
 | `cache/` | Downloaded price history, so backtests are fast (automatic). |
 
 ---
@@ -94,6 +96,15 @@ and reports which values scored best across 30 fixed periods. Treat
 results as hints — numbers tuned on the past may not fit the future.
 
 ```
+python backtest.py --walkforward
+```
+**The honest tuner.** Tunes settings on one stretch of history, then
+measures them on the NEXT stretch the tuner never saw, rolling forward
+through all 7 years. If tuned settings can't beat the defaults
+out-of-sample, `--tune`'s suggestions are overfitting — the verdict line
+tells you which. Run this before adopting anything `--tune` suggests.
+
+```
 python backtest.py --symbol ETH/USD
 python backtest.py --timeframe 1h
 ```
@@ -119,6 +130,20 @@ exits (handy for a quick look).
 The paper trader **remembers everything** in `state.json`: if you stop
 it and restart tomorrow, it resumes the same cash, open position, and
 initial investment. Delete `state.json` to start over from fresh money.
+
+### Champion / Challenger (all strategies compete live)
+
+```
+python champion.py
+python champion.py --timeframe 1h --iterations 1
+```
+Runs ALL 12 strategies as separate $10,000 paper portfolios at the same
+time, on live prices, and prints a leaderboard: value, earned/lost,
+trades, win rate. After a few weeks, reality — not a backtest — tells
+you which strategy actually earns. The GitHub Actions workflow runs this
+every hour alongside the main paper trader, so the race collects
+evidence 24/7. State lives in `portfolios.json`; delete it to restart
+the race.
 
 ### Checking results
 
@@ -227,9 +252,22 @@ the scoreboard.
   is measured against it.
 - `RANDOM_WINDOW / MIN_WINDOW / MAX_WINDOW` — each backtest picks a
   random 150-550 candle slice. Set `RANDOM_WINDOW = False` to always
-  test the full ~2 years.
-- `FEE_RATE / SLIPPAGE` — realistic trading costs applied to every fill.
-  Don't set them to zero; fees are why most strategies lose.
+  test the full history.
+- `DEEP_HISTORY = True` — daily backtests use free Coinbase data from
+  2019 onward (7+ years, including full bear markets) instead of
+  Kraken's 2-year limit. More conditions tested = less overfitting.
+- `USE_MAKER / MAKER_FEE / TAKER_FEE` — with maker mode on, entries and
+  take-profits are modeled as resting limit orders (0.16% on Kraken)
+  instead of instant market orders (0.26%). Stop-losses always stay
+  market orders — they must execute NOW. Cutting fees is one of the few
+  near-guaranteed edges in trading. (Not modeled: a resting limit order
+  can miss its fill in a fast market.)
+- `SLIPPAGE` — market orders fill slightly worse than the printed price.
+  Don't set costs to zero; fees are why most strategies lose.
+- `TREND_FILTER / TREND_FILTER_SMA` — multi-timeframe confirmation: new
+  buys are only allowed while the daily close is above its 50-day
+  average. Signals against the daily trend are the classic false-signal
+  factory; this refuses them (in backtests AND live).
 
 ### Paper trading
 - `PAPER_TIMEFRAME = "1m"` — candle size signals form on. 1m is good

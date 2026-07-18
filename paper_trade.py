@@ -19,7 +19,8 @@ from pathlib import Path
 
 import config
 from data import fetch_candles
-from strategies import STRATEGIES, add_indicators, position_size, stop_and_target
+from strategies import (STRATEGIES, add_indicators, entry_fill, exit_fill,
+                        position_size, stop_and_target, trend_allows_entry)
 
 TRADES_FILE = Path(__file__).parent / "trades.csv"
 STATE_FILE = Path(__file__).parent / "state.json"
@@ -111,11 +112,11 @@ def run(max_iterations: int | None = None, strategy: str | None = None) -> None:
 
             if btc > 0:
                 value = cash + btc * price
-                # Real fills are slightly worse than the printed price.
-                sell_fill = price * (1 - config.SLIPPAGE)
                 if price <= stop:
+                    # Stop-loss = market (taker) order with slippage.
+                    sell_fill, fee = exit_fill(price, is_stop=True)
                     was_loss = price < entry
-                    cash += btc * sell_fill * (1 - config.FEE_RATE)
+                    cash += btc * sell_fill * (1 - fee)
                     print(f"[{now}] STOP-LOSS hit at ${price:,.2f} "
                           f"(entered ${entry:,.2f}) -> ${cash:,.2f} cash | "
                           f"total: {pnl_str(cash)}")
@@ -125,7 +126,9 @@ def run(max_iterations: int | None = None, strategy: str | None = None) -> None:
                         cooldown = config.COOLDOWN_CANDLES
                     save_state(strategy, cash, btc, stop, target, entry, start_cash)
                 elif not config.TRAILING_STOP and price >= target:
-                    cash += btc * sell_fill * (1 - config.FEE_RATE)
+                    # Take-profit rests as a cheaper maker limit order.
+                    sell_fill, fee = exit_fill(price, is_stop=False)
+                    cash += btc * sell_fill * (1 - fee)
                     print(f"[{now}] TAKE-PROFIT hit at ${price:,.2f} "
                           f"(entered ${entry:,.2f}) -> ${cash:,.2f} cash | "
                           f"total: {pnl_str(cash)}")
@@ -150,11 +153,15 @@ def run(max_iterations: int | None = None, strategy: str | None = None) -> None:
                 cooldown -= 1
                 print(f"[{now}] cooldown after a loss ({cooldown} checks left) | "
                       f"BTC ${price:,.2f} | cash ${cash:,.2f}")
+            elif last["entry_signal"] and last["atr"] > 0 and not trend_allows_entry():
+                print(f"[{now}] {strategy} signal, but the daily trend is DOWN "
+                      f"(price under its {config.TREND_FILTER_SMA}-day average) "
+                      f"-- skipping | BTC ${price:,.2f}")
             elif last["entry_signal"] and last["atr"] > 0:
-                entry = price * (1 + config.SLIPPAGE)
+                entry, fee = entry_fill(price)
                 stop, target = stop_and_target(entry, last["atr"])
                 qty = position_size(cash, entry, stop)
-                spend = qty * entry * (1 + config.FEE_RATE)
+                spend = qty * entry * (1 + fee)
                 if spend <= cash and qty > 0:
                     btc = qty
                     cash -= spend

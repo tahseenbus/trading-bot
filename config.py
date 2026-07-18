@@ -86,10 +86,31 @@ MAX_ACCOUNT_LOSS = 0.20
 
 # ------------------------------------------------------------ backtest
 BACKTEST_TIMEFRAME = "1d"   # daily candles (~2 years of free history)
-FEE_RATE = 0.0026           # 0.26% per trade (Kraken's standard taker fee)
 SLIPPAGE = 0.0005           # 0.05%: real fills are slightly worse than the
                             # printed price. Buys cost a touch more, sells
                             # get a touch less. Keeps backtests honest.
+
+# --- Fees: maker vs taker ---
+# A "taker" order crosses the book and fills instantly (market order).
+# A "maker" order rests as a limit order and waits -- cheaper, because
+# you provide liquidity. On Kraken: taker 0.26%, maker 0.16%.
+# With USE_MAKER = True the bot models resting limit orders for entries
+# and take-profits (cheaper), while stop-losses stay taker (they must
+# execute now). Cutting fees is one of the few near-guaranteed edges.
+TAKER_FEE = 0.0026
+MAKER_FEE = 0.0016
+USE_MAKER = True
+FEE_RATE = TAKER_FEE        # conservative default used for position sizing
+
+# --- Deep history ---
+# Kraken's free API only serves the last ~720 candles (~2 years of daily).
+# Coinbase's free API allows paging back much further. With DEEP_HISTORY
+# on, daily backtests use Coinbase data from HISTORY_START onward
+# (7+ years, including full bear markets) -- twice the data, half the
+# overfitting. Intraday timeframes still use the recent Kraken data.
+DEEP_HISTORY = True
+HISTORY_EXCHANGE = "coinbase"
+HISTORY_START = "2019-01-01"
 
 # Random-window backtesting: each run tests the strategy on a different
 # randomly chosen slice of the available history, so you can see how it
@@ -98,6 +119,15 @@ SLIPPAGE = 0.0005           # 0.05%: real fills are slightly worse than the
 RANDOM_WINDOW = True
 MIN_WINDOW = 150            # shortest slice (in candles) a run may pick
 MAX_WINDOW = 550            # longest slice a run may pick
+
+# --- Multi-timeframe confirmation ---
+# Only allow NEW buys while the higher-timeframe trend agrees: the daily
+# close must be above its own moving average. Intraday signals against
+# the daily trend are the classic false-signal factory; this filter
+# refuses them. (Open positions still manage their stops normally.)
+TREND_FILTER = True
+TREND_FILTER_TIMEFRAME = "1d"
+TREND_FILTER_SMA = 50
 
 # ---------------------------------------------------------- your money
 # Initial investment (fake USD). Both the backtest and the paper trader

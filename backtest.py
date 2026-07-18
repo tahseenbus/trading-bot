@@ -18,8 +18,28 @@ import random
 import sys
 
 import config
-from data import fetch_candles
-from strategies import STRATEGIES, add_indicators, position_size, stop_and_target
+from data import fetch_backtest_candles, fetch_deep_history, fetch_candles
+from strategies import (STRATEGIES, add_indicators, entry_fill, exit_fill,
+                        position_size, stop_and_target, trend_filter_mask)
+
+# Higher-timeframe candles for the trend filter, fetched once per command.
+_trend_candles = None
+
+
+def signals(window, name=None):
+    """Strategy signals for a window, with the multi-timeframe trend
+    filter applied on top (new buys only while the daily trend is up)."""
+    global _trend_candles
+    df = add_indicators(window, name)
+    if config.TREND_FILTER:
+        if _trend_candles is None:
+            if config.DEEP_HISTORY and config.TREND_FILTER_TIMEFRAME == "1d":
+                _trend_candles = fetch_deep_history("1d")
+            else:
+                _trend_candles = fetch_candles(config.TREND_FILTER_TIMEFRAME)
+        df["entry_signal"] = df["entry_signal"] & trend_filter_mask(
+            df.index, _trend_candles)
+    return df
 
 
 def pick_window(candles, rng):
@@ -45,7 +65,7 @@ def simulate(df):
     start_cash = float(config.START_CASH)
     cash = start_cash
     btc = 0.0
-    stop = target = entry = 0.0
+    stop = target = entry = entry_cost = 0.0
     trades = []          # (time, result, entry, exit, profit_dollars)
     peak = start_cash    # highest portfolio value seen so far
     max_drawdown = 0.0   # worst peak-to-valley drop, as a fraction
@@ -65,11 +85,12 @@ def simulate(df):
                 # Ratchet the stop up as price rises; never lower it.
                 stop = max(stop, row["close"] - config.STOP_ATR_MULT * row["atr"])
             if exit_price is not None:
-                # Sells fill slightly below the trigger price (slippage).
-                fill = exit_price * (1 - config.SLIPPAGE)
-                proceeds = btc * fill * (1 - config.FEE_RATE)
-                cost = btc * entry * (1 + config.FEE_RATE)
-                pnl = proceeds - cost
+                # Stops are market (taker) orders; take-profits can rest
+                # as cheaper maker limit orders. See strategies.exit_fill.
+                fill, fee = exit_fill(exit_price, is_stop="stop" in result
+                                      or "trail" in result)
+                proceeds = btc * fill * (1 - fee)
+                pnl = proceeds - entry_cost
                 trades.append((time, result, entry, exit_price, pnl))
                 cash += proceeds
                 btc = 0.0
@@ -81,14 +102,14 @@ def simulate(df):
         elif halted:
             pass  # circuit breaker tripped: sit out the rest of the test
         elif row["entry_signal"] and row["atr"] > 0:
-            # Buys fill slightly above the printed price (slippage).
-            entry = row["close"] * (1 + config.SLIPPAGE)
+            entry, fee = entry_fill(row["close"])
             stop, target = stop_and_target(entry, row["atr"])
             qty = position_size(cash, entry, stop)
-            spend = qty * entry * (1 + config.FEE_RATE)
+            spend = qty * entry * (1 + fee)
             if spend <= cash:
                 btc = qty
                 cash -= spend
+                entry_cost = spend
 
         # Track the equity curve to measure drawdown (worst losing streak).
         value = cash + btc * row["close"]
@@ -120,7 +141,7 @@ def simulate(df):
 
 def get_candles(seed):
     """Fetch history and (by default) cut a random window from it."""
-    candles = fetch_candles(config.BACKTEST_TIMEFRAME)
+    candles = fetch_backtest_candles()
     if config.RANDOM_WINDOW:
         # If no seed given, pick a random one and print it so any
         # interesting run can be reproduced later with --seed.
@@ -137,13 +158,13 @@ def run_many(n, strategy=None, seed=None):
     the DISTRIBUTION of outcomes. One backtest can get lucky; a hundred
     windows tell you how the strategy behaves across market conditions."""
     strategy = strategy or config.STRATEGY
-    all_candles = fetch_candles(config.BACKTEST_TIMEFRAME)
+    all_candles = fetch_backtest_candles()
     rng = random.Random(seed)
 
     returns, trade_counts, beat_hold = [], [], 0
     for _ in range(n):
         window = pick_window(all_candles, rng)
-        stats = simulate(add_indicators(window, strategy))
+        stats = simulate(signals(window, strategy))
         returns.append(stats["return"])
         trade_counts.append(len(stats["trades"]))
         hold = window["close"].iloc[-1] / window["close"].iloc[0] - 1
@@ -174,7 +195,7 @@ def run_many(n, strategy=None, seed=None):
 def run_backtest(seed=None, strategy=None):
     strategy = strategy or config.STRATEGY
     candles = get_candles(seed)
-    df = add_indicators(candles, strategy)
+    df = signals(candles, strategy)
     stats = simulate(df)
 
     trades, wins, losses = stats["trades"], stats["wins"], stats["losses"]
@@ -234,7 +255,7 @@ def run_compare(seed=None):
 
     results = []
     for name in STRATEGIES:
-        stats = simulate(add_indicators(candles, name))
+        stats = simulate(signals(candles, name))
         results.append((name, stats))
     results.sort(key=lambda r: r[1]["return"], reverse=True)
 
@@ -256,7 +277,7 @@ def run_compare_many(n, seed=None):
     """Rank ALL strategies across the same n random windows each.
     Far more trustworthy than one window: shows median result and how
     OFTEN each strategy makes money, not who got lucky once."""
-    all_candles = fetch_candles(config.BACKTEST_TIMEFRAME)
+    all_candles = fetch_backtest_candles()
     rng = random.Random(seed)
     windows = [pick_window(all_candles, rng) for _ in range(n)]
 
@@ -270,7 +291,7 @@ def run_compare_many(n, seed=None):
     for name in STRATEGIES:
         returns, n_trades = [], 0
         for window in windows:
-            stats = simulate(add_indicators(window, name))
+            stats = simulate(signals(window, name))
             returns.append(stats["return"])
             n_trades += len(stats["trades"])
         returns.sort()
@@ -305,13 +326,13 @@ def run_tune(strategy=None, seed=7, n_windows=30):
     -- treat the winners as hints, not truth."""
     strategy = strategy or config.STRATEGY
     base = dict(config.STRATEGY_SETTINGS[strategy])
-    all_candles = fetch_candles(config.BACKTEST_TIMEFRAME)
+    all_candles = fetch_backtest_candles()
     rng = random.Random(seed)
     windows = [pick_window(all_candles, rng) for _ in range(n_windows)]
 
     def score(settings):
         config.STRATEGY_SETTINGS[strategy] = settings
-        returns = sorted(simulate(add_indicators(w, strategy))["return"]
+        returns = sorted(simulate(signals(w, strategy))["return"]
                          for w in windows)
         return returns[len(returns) // 2]
 
@@ -343,6 +364,78 @@ def run_tune(strategy=None, seed=7, n_windows=30):
     print("Remember: numbers tuned on the past may not fit the future (overfitting).")
 
 
+def run_walkforward(strategy=None, train=500, test=250):
+    """The honest tuner: tune settings on one stretch of history (train),
+    then measure them on the NEXT stretch the tuner never saw (test),
+    rolling forward through all of history.
+
+    This answers the question --tune cannot: do tuned settings still work
+    on data they weren't fitted to? If they can't beat the defaults
+    out-of-sample, the tuning was just memorizing the past (overfitting).
+    """
+    strategy = strategy or config.STRATEGY
+    candles = fetch_backtest_candles()
+    base = dict(config.STRATEGY_SETTINGS[strategy])
+
+    def ret(window, settings):
+        config.STRATEGY_SETTINGS[strategy] = settings
+        try:
+            return simulate(signals(window, strategy))["return"]
+        finally:
+            config.STRATEGY_SETTINGS[strategy] = base
+
+    def greedy_tune(train_df):
+        """Same one-param-at-a-time sweep as --tune, scored on train only."""
+        best = dict(base)
+        for param, value in base.items():
+            candidates = sorted({
+                type(value)(round(value * f, 4)) for f in (0.5, 0.75, 1.0, 1.25, 1.5)
+                if (value * f) >= (2 if isinstance(value, int) else 0.001)
+            })
+            scored = [(ret(train_df, {**best, param: c}), c) for c in candidates]
+            best[param] = max(scored)[1]
+        return best
+
+    n_folds = (len(candles) - train) // test
+    print(f"Walk-forward: {strategy} | tune on {train} candles, "
+          f"test on the NEXT {test} | {n_folds} folds | {config.SYMBOL}")
+    print(f"{'fold':>4} {'test period':>24} {'default':>9} {'tuned':>9}  tuned settings")
+    print("-" * 78)
+
+    tuned_wins = 0
+    defaults, tuneds = [], []
+    start = 0
+    fold = 1
+    while start + train + test <= len(candles):
+        train_df = candles.iloc[start:start + train]
+        test_df = candles.iloc[start + train:start + train + test]
+        tuned = greedy_tune(train_df)
+        r_default = ret(test_df, base)
+        r_tuned = ret(test_df, tuned)
+        defaults.append(r_default)
+        tuneds.append(r_tuned)
+        if r_tuned > r_default:
+            tuned_wins += 1
+        changed = {k: v for k, v in tuned.items() if v != base[k]}
+        print(f"{fold:>4} {str(test_df.index[0].date()):>12}>"
+              f"{str(test_df.index[-1].date()):>11} {r_default:>9.1%} {r_tuned:>9.1%}"
+              f"  {changed if changed else '(kept defaults)'}")
+        start += test
+        fold += 1
+
+    n = len(defaults)
+    print("-" * 78)
+    print(f"Average out-of-sample:  default {sum(defaults) / n:+.1%}   "
+          f"tuned {sum(tuneds) / n:+.1%}")
+    print(f"Tuning helped in {tuned_wins}/{n} folds.")
+    if tuned_wins <= n / 2:
+        print("Verdict: tuning does NOT generalize here -- trust the defaults "
+              "and distrust --tune's suggestions for this strategy.")
+    else:
+        print("Verdict: tuning shows some out-of-sample benefit -- still adopt "
+              "changes cautiously.")
+
+
 def print_list():
     print("Available strategies (set STRATEGY in config.py, or use --strategy):\n")
     for name, (_, description) in STRATEGIES.items():
@@ -363,7 +456,9 @@ if __name__ == "__main__":
         config.SYMBOL = args[args.index("--symbol") + 1].upper()
     if "--timeframe" in args:  # e.g. --timeframe 1h (1m 5m 15m 1h 4h 1d 1w)
         config.BACKTEST_TIMEFRAME = args[args.index("--timeframe") + 1]
-    if "--tune" in args:
+    if "--walkforward" in args:
+        run_walkforward(strategy)
+    elif "--tune" in args:
         run_tune(strategy)
     elif "--compare" in args and runs:
         run_compare_many(runs, seed)
