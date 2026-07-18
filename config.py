@@ -12,7 +12,7 @@ SYMBOL = "BTC/USD"
 # Options: breakout, sma_cross, ema_cross, macd, rsi_reversion,
 #          bollinger_reversion, bollinger_breakout, momentum,
 #          volume_breakout, stochastic, macd_rsi, regime_adaptive
-STRATEGY = "rsi_reversion"
+STRATEGY = "regime_adaptive"
 
 # Tuning numbers for every strategy. Units are candles unless noted.
 STRATEGY_SETTINGS = {
