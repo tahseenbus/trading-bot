@@ -1,0 +1,134 @@
+{
+  "breakout": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "sma_cross": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "ema_cross": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "macd": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "rsi_reversion": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "bollinger_reversion": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "bollinger_breakout": {
+    "cash": 19.96409335727003,
+    "btc": 0.15463862417720725,
+    "stop": 64227.57142857143,
+    "target": 64848.95714285714,
+    "entry": 64434.7,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "momentum": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "volume_breakout": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "stochastic": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "macd_rsi": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  },
+  "regime_adaptive": {
+    "cash": 10000.0,
+    "btc": 0.0,
+    "stop": 0.0,
+    "target": 0.0,
+    "entry": 0.0,
+    "start_cash": 10000.0,
+    "cooldown": 0,
+    "trades": 0,
+    "wins": 0
+  }
+}
