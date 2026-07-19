@@ -4,3 +4,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-07-19T12:09:06,breakout,SELL (stop),64366.90,9930.98,-69.02
 2026-07-19T12:09:06,rsi_reversion,BUY,64366.90,9984.06,-15.94
 2026-07-19T12:09:06,bollinger_breakout,SELL (stop),64366.90,9942.73,-57.27
+2026-07-19T13:57:33,regime_adaptive,BUY,64441.80,9984.06,-15.94
