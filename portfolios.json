@@ -6,7 +6,7 @@
     "target": 65948.52857142857,
     "entry": 65037.9,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 2,
     "wins": 0
   },
@@ -17,14 +17,14 @@
     "target": 65786.6857142857,
     "entry": 64701.6,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 1,
     "wins": 0
   },
   "ema_cross": {
     "cash": 19.96409335727185,
     "btc": 0.15413246167640057,
-    "stop": 63828.87142857143,
+    "stop": 64007.11428571428,
     "target": 66281.15714285715,
     "entry": 64646.3,
     "start_cash": 10000.0,
@@ -39,7 +39,7 @@
     "target": 65948.52857142857,
     "entry": 65037.9,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 1,
     "wins": 0
   },
@@ -50,7 +50,7 @@
     "target": 64940.55714285714,
     "entry": 64366.9,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 1,
     "wins": 0
   },
@@ -72,7 +72,7 @@
     "target": 65948.52857142857,
     "entry": 65037.9,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 2,
     "wins": 0
   },
@@ -94,7 +94,7 @@
     "target": 65948.52857142857,
     "entry": 65037.9,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 1,
     "wins": 0
   },
@@ -127,7 +127,7 @@
     "target": 65070.08571428572,
     "entry": 64441.8,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 1,
     "wins": 0
   }
