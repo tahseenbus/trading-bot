@@ -9,3 +9,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-07-20T00:16:23,macd,BUY,65037.90,9984.06,-15.94
 2026-07-20T00:16:23,bollinger_breakout,BUY,65037.90,9926.88,-73.12
 2026-07-20T00:16:23,volume_breakout,BUY,65037.90,9984.06,-15.94
+2026-07-20T04:10:37,sma_cross,BUY,64701.60,9984.06,-15.94
