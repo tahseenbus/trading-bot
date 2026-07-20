@@ -24,3 +24,4 @@ time,side,price,portfolio_value,initial_investment,profit_loss
 2026-07-18T09:22:02,BUY (rsi_reversion),63961.96,9969.11,10000.00,-30.89
 >>>>>>> 1b1b8379b6de5ea7ffca02e9de3df13c60dff0a6
 2026-07-19T13:57:30,BUY (regime_adaptive),64441.80,9984.06,10000.00,-15.94
+2026-07-20T07:35:47,SELL (stop-loss),64092.60,9899.36,10000.00,-100.64
