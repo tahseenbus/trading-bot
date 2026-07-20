@@ -6,7 +6,7 @@
     "target": 65948.52857142857,
     "entry": 65037.9,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 2,
     "wins": 0
   },
@@ -17,7 +17,7 @@
     "target": 65786.6857142857,
     "entry": 64701.6,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 1,
     "wins": 0
   },
@@ -39,7 +39,7 @@
     "target": 65948.52857142857,
     "entry": 65037.9,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 1,
     "wins": 0
   },
@@ -50,7 +50,7 @@
     "target": 64940.55714285714,
     "entry": 64366.9,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 1,
     "wins": 0
   },
@@ -72,7 +72,7 @@
     "target": 65948.52857142857,
     "entry": 65037.9,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 2,
     "wins": 0
   },
@@ -94,7 +94,7 @@
     "target": 65948.52857142857,
     "entry": 65037.9,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 1,
     "wins": 0
   },
@@ -127,7 +127,7 @@
     "target": 65070.08571428572,
     "entry": 64441.8,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 1,
     "wins": 0
   }
