@@ -18,3 +18,5 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-07-20T07:35:52,volume_breakout,SELL (stop),64092.60,9808.81,-191.19
 2026-07-20T07:35:52,regime_adaptive,SELL (stop),64092.60,9899.36,-100.64
 2026-07-20T13:20:48,ema_cross,BUY,64646.30,9984.06,-15.94
+2026-07-21T06:44:51,breakout,BUY,65887.30,9725.57,-274.43
+2026-07-21T06:44:51,regime_adaptive,BUY,65887.30,9883.57,-116.43
