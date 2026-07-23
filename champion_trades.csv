@@ -29,3 +29,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-07-23T00:16:38,ema_cross,BUY,66147.00,10131.33,+131.33
 2026-07-23T12:07:02,ema_cross,SELL (stop),65500.10,10001.42,+1.42
 2026-07-23T12:07:02,regime_adaptive,SELL (stop),65500.10,9801.84,-198.16
+2026-07-23T18:40:55,stochastic,BUY,64751.10,9984.06,-15.94
