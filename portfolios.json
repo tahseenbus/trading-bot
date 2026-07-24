@@ -11,14 +11,14 @@
     "wins": 1
   },
   "sma_cross": {
-    "cash": 19.683968955348973,
-    "btc": 0.15120469402471273,
+    "cash": 9642.258109269798,
+    "btc": 0.0,
     "stop": 64471.857142857145,
     "target": 65999.74285714286,
     "entry": 64973.4,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 1,
+    "cooldown": 5,
+    "trades": 2,
     "wins": 0
   },
   "ema_cross": {
@@ -33,14 +33,14 @@
     "wins": 1
   },
   "macd": {
-    "cash": 19.582392566539056,
-    "btc": 0.15009177605390353,
+    "cash": 9571.33111469358,
+    "btc": 0.0,
     "stop": 64938.02857142857,
     "target": 66234.42857142858,
     "entry": 65117.4,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 1,
+    "cooldown": 5,
+    "trades": 2,
     "wins": 0
   },
   "rsi_reversion": {
@@ -55,11 +55,11 @@
     "wins": 0
   },
   "bollinger_reversion": {
-    "cash": 10000.0,
-    "btc": 0.0,
-    "stop": 0.0,
-    "target": 0.0,
-    "entry": 0.0,
+    "cash": 19.96409335727003,
+    "btc": 0.1560860024761596,
+    "stop": 63221.42857142857,
+    "target": 65068.74285714285,
+    "entry": 63837.2,
     "start_cash": 10000.0,
     "cooldown": 0,
     "trades": 0,
@@ -99,36 +99,36 @@
     "wins": 0
   },
   "stochastic": {
-    "cash": 19.96409335727003,
-    "btc": 0.1538829974667781,
+    "cash": 9812.983824714822,
+    "btc": 0.0,
     "stop": 64938.02857142857,
     "target": 65885.75714285714,
     "entry": 64751.1,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 0,
+    "cooldown": 5,
+    "trades": 1,
     "wins": 0
   },
   "macd_rsi": {
-    "cash": 19.96409335727185,
-    "btc": 0.15301737104477597,
+    "cash": 9757.895889269053,
+    "btc": 0.0,
     "stop": 64938.02857142857,
     "target": 66234.42857142858,
     "entry": 65117.4,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 0,
+    "cooldown": 5,
+    "trades": 1,
     "wins": 0
   },
   "regime_adaptive": {
-    "cash": 19.568486849568217,
-    "btc": 0.15053075094970272,
+    "cash": 9599.25330254705,
+    "btc": 0.0,
     "stop": 64938.02857142857,
     "target": 66007.68571428572,
     "entry": 64881.4,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 3,
+    "cooldown": 5,
+    "trades": 4,
     "wins": 1
   }
 }
