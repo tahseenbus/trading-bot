@@ -33,3 +33,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-07-23T22:27:50,macd,BUY,65117.40,9793.17,-206.83
 2026-07-23T22:27:50,macd_rsi,BUY,65117.40,9984.06,-15.94
 2026-07-24T00:14:58,regime_adaptive,BUY,64881.40,9786.21,-213.79
+2026-07-24T09:39:41,sma_cross,BUY,64973.40,9843.97,-156.03
