@@ -44,3 +44,8 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-07-25T23:16:58,ema_cross,BUY,64355.20,9985.48,-14.52
 2026-07-26T22:16:38,breakout,BUY,65173.20,9683.52,-316.48
 2026-07-26T22:16:38,volume_breakout,BUY,65173.20,9793.17,-206.83
+2026-07-27T15:19:17,breakout,SELL (stop),64570.60,9564.49,-435.51
+2026-07-27T15:19:17,ema_cross,SELL (stop),64570.60,9987.85,-12.15
+2026-07-27T15:19:17,bollinger_reversion,SELL (stop),64570.60,10067.30,+67.30
+2026-07-27T15:19:17,bollinger_breakout,SELL (stop),64570.60,9740.18,-259.82
+2026-07-27T15:19:17,volume_breakout,SELL (stop),64570.60,9672.80,-327.20
