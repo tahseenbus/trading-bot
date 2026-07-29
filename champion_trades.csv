@@ -63,3 +63,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-07-29T15:23:18,regime_adaptive,SELL (stop),64031.50,9623.41,-376.59
 2026-07-29T21:15:51,stochastic,BUY,63382.90,9822.00,-178.00
 2026-07-29T21:15:51,regime_adaptive,BUY,63382.90,9608.07,-391.93
+2026-07-29T23:26:50,rsi_reversion,BUY,63926.30,9511.12,-488.88
