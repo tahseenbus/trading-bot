@@ -75,3 +75,5 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-07-31T04:47:57,stochastic,SELL (stop),64262.80,9927.28,-72.72
 2026-07-31T04:47:57,macd_rsi,SELL (stop),64262.80,9741.42,-258.58
 2026-07-31T04:47:57,regime_adaptive,SELL (stop),64262.80,9711.06,-288.94
+2026-07-31T08:11:48,bollinger_reversion,BUY,63847.80,10076.55,+76.55
+2026-07-31T08:11:48,regime_adaptive,BUY,63847.80,9695.58,-304.42
