@@ -82,3 +82,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-02T04:00:04,ema_cross,BUY,63392.70,9971.93,-28.07
 2026-08-02T14:03:12,ema_cross,SELL (stop),63008.20,9880.91,-119.09
 2026-08-03T15:21:56,ema_cross,BUY,63734.30,9865.16,-134.84
+2026-08-03T17:22:48,sma_cross,BUY,63799.90,9626.89,-373.11
