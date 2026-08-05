@@ -86,3 +86,5 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-04T07:57:28,rsi_reversion,BUY,63650.00,9516.32,-483.68
 2026-08-04T13:13:08,macd,BUY,63899.90,9539.94,-460.06
 2026-08-05T16:55:46,bollinger_breakout,BUY,64576.10,9509.21,-490.79
+2026-08-05T18:57:48,breakout,BUY,64734.70,9332.44,-667.56
+2026-08-05T18:57:48,volume_breakout,BUY,64734.70,9657.37,-342.63
