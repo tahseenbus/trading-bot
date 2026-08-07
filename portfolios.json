@@ -11,14 +11,14 @@
     "wins": 1
   },
   "sma_cross": {
-    "cash": 19.356467746072667,
-    "btc": 0.14864960436712182,
+    "cash": 9607.48010003684,
+    "btc": 0.0,
     "stop": 64777.55714285714,
     "target": 65794.77142857143,
     "entry": 64990.6,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 3,
+    "cooldown": 5,
+    "trades": 4,
     "wins": 1
   },
   "ema_cross": {
@@ -66,14 +66,14 @@
     "wins": 2
   },
   "bollinger_breakout": {
-    "cash": 18.890501825415413,
-    "btc": 0.14560124550382514,
+    "cash": 9410.390390774808,
+    "btc": 0.0,
     "stop": 64777.55714285714,
     "target": 65496.6,
     "entry": 64754.0,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 6,
+    "cooldown": 5,
+    "trades": 7,
     "wins": 1
   },
   "momentum": {
@@ -99,15 +99,15 @@
     "wins": 0
   },
   "stochastic": {
-    "cash": 19.81891537694173,
-    "btc": 0.15387733107940957,
+    "cash": 9945.138803565247,
+    "btc": 0.0,
     "stop": 64777.55714285714,
     "target": 65146.6,
     "entry": 64282.6,
     "start_cash": 10000.0,
     "cooldown": 0,
-    "trades": 3,
-    "wins": 2
+    "trades": 4,
+    "wins": 3
   },
   "macd_rsi": {
     "cash": 9741.424063818296,
@@ -121,14 +121,14 @@
     "wins": 1
   },
   "regime_adaptive": {
-    "cash": 18.883626489405287,
-    "btc": 0.14671259176441057,
+    "cash": 9482.067025059587,
+    "btc": 0.0,
     "stop": 64777.55714285714,
     "target": 64938.357142857145,
     "entry": 64240.1,
     "start_cash": 10000.0,
     "cooldown": 0,
-    "trades": 7,
-    "wins": 3
+    "trades": 8,
+    "wins": 4
   }
 }
