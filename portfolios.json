@@ -6,7 +6,7 @@
     "target": 65381.91428571429,
     "entry": 65111.0,
     "start_cash": 10000.0,
-    "cooldown": 4,
+    "cooldown": 3,
     "trades": 8,
     "wins": 1
   },
@@ -55,11 +55,11 @@
     "wins": 3
   },
   "bollinger_reversion": {
-    "cash": 9830.460095921655,
-    "btc": 0.0,
-    "stop": 63305.399999999994,
-    "target": 64977.45714285714,
-    "entry": 63847.8,
+    "cash": 19.62562230998992,
+    "btc": 0.15120167784108812,
+    "stop": 64633.485714285714,
+    "target": 65079.328571428574,
+    "entry": 64782.1,
     "start_cash": 10000.0,
     "cooldown": 0,
     "trades": 3,
@@ -72,7 +72,7 @@
     "target": 65381.91428571429,
     "entry": 65111.0,
     "start_cash": 10000.0,
-    "cooldown": 4,
+    "cooldown": 3,
     "trades": 8,
     "wins": 1
   },
@@ -94,7 +94,7 @@
     "target": 65381.91428571429,
     "entry": 65111.0,
     "start_cash": 10000.0,
-    "cooldown": 4,
+    "cooldown": 3,
     "trades": 4,
     "wins": 0
   },
@@ -121,11 +121,11 @@
     "wins": 1
   },
   "regime_adaptive": {
-    "cash": 9443.422494271286,
-    "btc": 0.0,
-    "stop": 64975.54285714286,
-    "target": 65649.18571428572,
-    "entry": 64879.1,
+    "cash": 18.852936828776365,
+    "btc": 0.14524867725046423,
+    "stop": 64633.485714285714,
+    "target": 65079.328571428574,
+    "entry": 64782.1,
     "start_cash": 10000.0,
     "cooldown": 0,
     "trades": 9,
