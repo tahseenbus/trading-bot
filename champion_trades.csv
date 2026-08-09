@@ -118,3 +118,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-09T10:57:01,rsi_reversion,BUY,64921.40,9552.41,-447.59
 2026-08-09T11:50:04,macd,BUY,64941.30,9577.77,-422.23
 2026-08-09T11:50:04,macd_rsi,BUY,64941.30,9725.89,-274.11
+2026-08-09T13:25:08,ema_cross,BUY,64995.00,9929.97,-70.03
