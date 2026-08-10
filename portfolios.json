@@ -17,7 +17,7 @@
     "target": 65508.07142857143,
     "entry": 65177.5,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 5,
     "wins": 1
   },
@@ -28,7 +28,7 @@
     "target": 65270.37142857142,
     "entry": 64995.0,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 6,
     "wins": 3
   },
