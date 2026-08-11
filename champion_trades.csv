@@ -133,3 +133,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-11T11:09:15,bollinger_breakout,BUY,64301.30,9323.84,-676.16
 2026-08-11T15:25:53,bollinger_breakout,SELL (stop),63756.10,9216.35,-783.65
 2026-08-11T15:25:53,stochastic,SELL (stop),63756.10,9871.04,-128.96
+2026-08-11T17:17:16,bollinger_reversion,BUY,63432.10,9668.89,-331.11
