@@ -1,1 +1,1 @@
-{"symbol": "BTC/USD", "strategy": "regime_adaptive", "cash": 18.789515935559393, "btc": 0.1478866299400649, "stop": 63099.94285714286, "target": 64266.84285714286, "entry": 63412.5, "start_cash": 10000.0}
+{"symbol": "BTC/USD", "strategy": "regime_adaptive", "cash": 18.789515935559393, "btc": 0.1478866299400649, "stop": 63434.200000000004, "target": 64266.84285714286, "entry": 63412.5, "start_cash": 10000.0}
