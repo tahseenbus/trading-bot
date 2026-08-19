@@ -165,3 +165,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-19T14:57:19,breakout,BUY,65836.00,9172.26,-827.74
 2026-08-19T14:57:19,volume_breakout,BUY,65836.00,9491.61,-508.39
 2026-08-19T14:57:19,regime_adaptive,BUY,65836.00,9362.57,-637.43
+2026-08-19T15:50:50,momentum,BUY,68545.50,9984.06,-15.94
