@@ -181,3 +181,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-23T11:40:36,macd_rsi,BUY,77330.30,9551.70,-448.30
 2026-08-23T13:49:07,breakout,BUY,77525.40,10681.22,+681.22
 2026-08-23T13:49:07,ema_cross,BUY,77525.40,9882.75,-117.25
+2026-08-23T17:40:01,sma_cross,BUY,77252.00,11232.51,+1232.51
