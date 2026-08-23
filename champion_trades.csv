@@ -177,3 +177,5 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-23T04:55:45,bollinger_reversion,BUY,76651.30,9686.84,-313.16
 2026-08-23T05:49:51,rsi_reversion,SELL (stop),76168.40,11153.11,+1153.11
 2026-08-23T05:49:51,regime_adaptive,BUY,76168.40,10902.85,+902.85
+2026-08-23T11:40:36,macd,BUY,77330.30,9290.85,-709.15
+2026-08-23T11:40:36,macd_rsi,BUY,77330.30,9551.70,-448.30
