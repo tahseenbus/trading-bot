@@ -50,7 +50,7 @@
     "target": 80023.17142857141,
     "entry": 77145.0,
     "start_cash": 10000.0,
-    "cooldown": 4,
+    "cooldown": 3,
     "trades": 10,
     "wins": 6
   },
