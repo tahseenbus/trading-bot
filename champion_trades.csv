@@ -183,3 +183,5 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-23T13:49:07,ema_cross,BUY,77525.40,9882.75,-117.25
 2026-08-23T17:40:01,sma_cross,BUY,77252.00,11232.51,+1232.51
 2026-08-24T05:06:03,stochastic,BUY,76950.10,9813.32,-186.68
+2026-08-24T11:48:23,bollinger_breakout,BUY,78259.70,10862.91,+862.91
+2026-08-24T11:48:23,volume_breakout,BUY,78259.70,11053.12,+1053.12
