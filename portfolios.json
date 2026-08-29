@@ -50,7 +50,7 @@
     "target": 81436.75714285715,
     "entry": 79682.3,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 12,
     "wins": 6
   },
@@ -61,7 +61,7 @@
     "target": 79755.4857142857,
     "entry": 77973.4,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 8,
     "wins": 5
   },
@@ -72,7 +72,7 @@
     "target": 81672.07142857143,
     "entry": 79958.1,
     "start_cash": 10000.0,
-    "cooldown": 3,
+    "cooldown": 2,
     "trades": 13,
     "wins": 4
   },
@@ -123,7 +123,7 @@
   "regime_adaptive": {
     "cash": 22.092828249826198,
     "btc": 0.14264595354483475,
-    "stop": 77189.31428571428,
+    "stop": 77370.1,
     "target": 79748.92857142858,
     "entry": 77300.1,
     "start_cash": 10000.0,
