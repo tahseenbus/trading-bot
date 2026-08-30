@@ -211,3 +211,6 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-08-28T18:50:10,bollinger_breakout,SELL (stop),77300.10,10526.13,+526.13
 2026-08-28T18:50:10,regime_adaptive,BUY,77300.10,11048.64,+1048.64
 2026-08-30T00:26:16,ema_cross,BUY,78203.60,10029.61,+29.61
+2026-08-30T12:59:50,breakout,BUY,78749.00,10839.95,+839.95
+2026-08-30T12:59:50,bollinger_breakout,BUY,78749.00,10509.35,+509.35
+2026-08-30T12:59:50,volume_breakout,BUY,78749.00,11112.32,+1112.32
