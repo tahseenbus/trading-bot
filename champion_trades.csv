@@ -238,3 +238,4 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-09-04T14:25:02,macd_rsi,SELL (stop),79296.20,9795.84,-204.16
 2026-09-05T00:11:19,regime_adaptive,BUY,79728.40,10833.81,+833.81
 2026-09-05T16:07:58,sma_cross,BUY,79786.00,11439.69,+1439.69
+2026-09-06T14:14:44,rsi_reversion,BUY,79748.40,10289.75,+289.75
