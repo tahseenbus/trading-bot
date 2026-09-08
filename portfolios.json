@@ -105,7 +105,7 @@
     "target": 80015.9714285714,
     "entry": 78874.4,
     "start_cash": 10000.0,
-    "cooldown": 4,
+    "cooldown": 3,
     "trades": 8,
     "wins": 5
   },
@@ -127,7 +127,7 @@
     "target": 80015.9714285714,
     "entry": 78874.4,
     "start_cash": 10000.0,
-    "cooldown": 4,
+    "cooldown": 3,
     "trades": 19,
     "wins": 10
   }
