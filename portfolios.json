@@ -11,14 +11,14 @@
     "wins": 4
   },
   "sma_cross": {
-    "cash": 22.723540617467734,
-    "btc": 0.1432694104039854,
+    "cash": 11235.307806989993,
+    "btc": 0.0,
     "stop": 78553.15714285713,
     "target": 80376.3857142857,
     "entry": 79160.9,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 8,
+    "cooldown": 5,
+    "trades": 9,
     "wins": 3
   },
   "ema_cross": {
@@ -66,14 +66,14 @@
     "wins": 6
   },
   "bollinger_breakout": {
-    "cash": 20.13565032772567,
-    "btc": 0.12695304834392215,
+    "cash": 9955.764954693836,
+    "btc": 0.0,
     "stop": 78553.15714285713,
     "target": 80376.3857142857,
     "entry": 79160.9,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 16,
+    "cooldown": 5,
+    "trades": 17,
     "wins": 4
   },
   "momentum": {
