@@ -251,3 +251,5 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-09-07T16:32:23,regime_adaptive,BUY,78874.40,10769.94,+769.94
 2026-09-08T14:38:40,stochastic,SELL (stop),78326.40,9933.08,-66.92
 2026-09-08T14:38:40,regime_adaptive,SELL (stop),78326.40,10662.18,+662.18
+2026-09-09T04:54:38,sma_cross,BUY,79160.90,11364.06,+1364.06
+2026-09-09T04:54:38,bollinger_breakout,BUY,79160.90,10069.85,+69.85
