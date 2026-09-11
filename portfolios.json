@@ -66,14 +66,14 @@
     "wins": 6
   },
   "bollinger_breakout": {
-    "cash": 19.875782099854405,
-    "btc": 0.12554139182592455,
+    "cash": 9681.37644451243,
+    "btc": 0.0,
     "stop": 77827.62857142856,
     "target": 81398.44285714286,
     "entry": 79017.9,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 17,
+    "cooldown": 5,
+    "trades": 18,
     "wins": 4
   },
   "momentum": {
@@ -99,15 +99,15 @@
     "wins": 3
   },
   "stochastic": {
-    "cash": 19.83048813350615,
-    "btc": 0.12889116648331794,
+    "cash": 9939.125409480337,
+    "btc": 0.0,
     "stop": 77827.62857142856,
     "target": 78477.12857142856,
     "entry": 76788.9,
     "start_cash": 10000.0,
     "cooldown": 0,
-    "trades": 8,
-    "wins": 5
+    "trades": 9,
+    "wins": 6
   },
   "macd_rsi": {
     "cash": 9795.838677274498,
