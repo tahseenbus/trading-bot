@@ -69,3 +69,4 @@ time,side,price,portfolio_value,initial_investment,profit_loss
 2026-09-09T18:42:11,SELL (stop-loss),78505.50,10374.33,10000.00,+374.33
 2026-09-09T21:45:24,BUY (regime_adaptive),78197.70,10357.79,10000.00,+357.79
 2026-09-10T14:30:40,SELL (stop-loss),77232.50,10198.56,10000.00,+198.56
+2026-09-12T04:47:03,BUY (regime_adaptive),77211.90,10182.30,10000.00,+182.30
