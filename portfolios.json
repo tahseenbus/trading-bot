@@ -99,14 +99,14 @@
     "wins": 3
   },
   "stochastic": {
-    "cash": 19.842562756448388,
-    "btc": 0.1282459881610306,
+    "cash": 9830.010242478711,
+    "btc": 0.0,
     "stop": 77147.1857142857,
     "target": 78729.08571428571,
     "entry": 77222.2,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 9,
+    "cooldown": 5,
+    "trades": 10,
     "wins": 6
   },
   "macd_rsi": {
@@ -121,14 +121,14 @@
     "wins": 5
   },
   "regime_adaptive": {
-    "cash": 20.927449115464697,
-    "btc": 0.13525780033781265,
+    "cash": 10367.46319913228,
+    "btc": 0.0,
     "stop": 77147.1857142857,
     "target": 78729.08571428571,
     "entry": 77222.2,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 20,
+    "cooldown": 5,
+    "trades": 21,
     "wins": 10
   }
 }
