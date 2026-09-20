@@ -44,14 +44,14 @@
     "wins": 6
   },
   "rsi_reversion": {
-    "cash": 20.45206796693492,
-    "btc": 0.1252440656182284,
+    "cash": 10068.373742723974,
+    "btc": 0.0,
     "stop": 81030.84285714285,
     "target": 82489.71428571429,
     "entry": 81502.0,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 14,
+    "cooldown": 5,
+    "trades": 15,
     "wins": 6
   },
   "bollinger_reversion": {
@@ -66,15 +66,15 @@
     "wins": 6
   },
   "bollinger_breakout": {
-    "cash": 19.111156255967217,
-    "btc": 0.12462735282134513,
+    "cash": 10017.555980766125,
+    "btc": 0.0,
     "stop": 81030.84285714285,
     "target": 78620.12857142858,
     "entry": 76535.3,
     "start_cash": 10000.0,
     "cooldown": 0,
-    "trades": 19,
-    "wins": 4
+    "trades": 20,
+    "wins": 5
   },
   "momentum": {
     "cash": 11185.619184268566,
