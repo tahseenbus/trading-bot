@@ -44,15 +44,15 @@
     "wins": 6
   },
   "rsi_reversion": {
-    "cash": 20.100595335561593,
-    "btc": 0.11765186504156035,
+    "cash": 10062.285897148271,
+    "btc": 0.0,
     "stop": 85685.68571428573,
     "target": 87292.59999999999,
     "entry": 85270.4,
     "start_cash": 10000.0,
     "cooldown": 0,
-    "trades": 15,
-    "wins": 6
+    "trades": 16,
+    "wins": 7
   },
   "bollinger_reversion": {
     "cash": 9635.261420656032,
