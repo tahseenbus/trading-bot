@@ -22,14 +22,14 @@
     "wins": 3
   },
   "ema_cross": {
-    "cash": 19.598219910476473,
-    "btc": 0.11661159640344713,
+    "cash": 9665.172258101866,
+    "btc": 0.0,
     "stop": 83010.14285714286,
     "target": 85622.41428571427,
     "entry": 83880.9,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 10,
+    "cooldown": 5,
+    "trades": 11,
     "wins": 5
   },
   "macd": {
@@ -50,7 +50,7 @@
     "target": 85713.94285714286,
     "entry": 84448.2,
     "start_cash": 10000.0,
-    "cooldown": 1,
+    "cooldown": 0,
     "trades": 17,
     "wins": 7
   },
@@ -121,14 +121,14 @@
     "wins": 6
   },
   "regime_adaptive": {
-    "cash": 19.801649215089128,
-    "btc": 0.11875358067362075,
+    "cash": 9842.550758358431,
+    "btc": 0.0,
     "stop": 83010.14285714286,
     "target": 84853.1857142857,
     "entry": 83222.9,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 23,
+    "cooldown": 5,
+    "trades": 24,
     "wins": 10
   }
 }
