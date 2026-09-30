@@ -28,7 +28,7 @@
     "target": 85622.41428571427,
     "entry": 83880.9,
     "start_cash": 10000.0,
-    "cooldown": 4,
+    "cooldown": 3,
     "trades": 11,
     "wins": 5
   },
@@ -46,7 +46,7 @@
   "rsi_reversion": {
     "cash": 19.704864424194966,
     "btc": 0.11760914604144541,
-    "stop": 82708.71428571429,
+    "stop": 82753.85714285713,
     "target": 85448.57142857143,
     "entry": 83622.0,
     "start_cash": 10000.0,
@@ -127,7 +127,7 @@
     "target": 84853.1857142857,
     "entry": 83222.9,
     "start_cash": 10000.0,
-    "cooldown": 4,
+    "cooldown": 3,
     "trades": 24,
     "wins": 10
   }
