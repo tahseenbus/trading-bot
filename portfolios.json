@@ -11,14 +11,14 @@
     "wins": 4
   },
   "sma_cross": {
-    "cash": 22.43027339564287,
-    "btc": 0.13232350612451693,
+    "cash": 11037.218650296592,
+    "btc": 0.0,
     "stop": 83631.64285714286,
     "target": 86815.91428571427,
     "entry": 84603.0,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 9,
+    "cooldown": 5,
+    "trades": 10,
     "wins": 3
   },
   "ema_cross": {
@@ -44,14 +44,14 @@
     "wins": 7
   },
   "rsi_reversion": {
-    "cash": 19.704864424194966,
-    "btc": 0.11760914604144541,
+    "cash": 9809.64992237592,
+    "btc": 0.0,
     "stop": 83631.64285714286,
     "target": 85448.57142857143,
     "entry": 83622.0,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 17,
+    "cooldown": 5,
+    "trades": 18,
     "wins": 7
   },
   "bollinger_reversion": {
