@@ -327,3 +327,10 @@ time,strategy,side,price,portfolio_value,profit_loss
 2026-10-11T15:48:29,breakout,BUY,83357.20,9956.54,-43.46
 2026-10-11T15:48:29,bollinger_breakout,BUY,83357.20,10160.16,+160.16
 2026-10-11T15:48:29,volume_breakout,BUY,83357.20,10653.10,+653.10
+2026-10-12T15:44:03,breakout,SELL (stop),82646.30,9841.27,-158.73
+2026-10-12T15:44:03,macd,SELL (stop),82646.30,9585.60,-414.40
+2026-10-12T15:44:03,bollinger_reversion,SELL (stop),82646.30,9795.24,-204.76
+2026-10-12T15:44:03,bollinger_breakout,SELL (stop),82646.30,10042.53,+42.53
+2026-10-12T15:44:03,volume_breakout,SELL (stop),82646.30,10529.76,+529.76
+2026-10-12T15:44:03,macd_rsi,SELL (stop),82646.30,9854.73,-145.27
+2026-10-12T15:44:03,regime_adaptive,BUY,82646.30,9491.85,-508.15
