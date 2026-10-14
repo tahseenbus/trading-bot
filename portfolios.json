@@ -33,14 +33,14 @@
     "wins": 5
   },
   "macd": {
-    "cash": 19.136787247382017,
-    "btc": 0.11482369574221345,
+    "cash": 9351.62385830167,
+    "btc": 0.0,
     "stop": 82752.9,
     "target": 85459.52857142857,
     "entry": 83181.3,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 13,
+    "cooldown": 5,
+    "trades": 14,
     "wins": 8
   },
   "rsi_reversion": {
@@ -99,36 +99,36 @@
     "wins": 3
   },
   "stochastic": {
-    "cash": 19.624724218376286,
-    "btc": 0.11937901568729824,
+    "cash": 9722.353009137289,
+    "btc": 0.0,
     "stop": 82752.9,
     "target": 83758.91428571427,
     "entry": 82047.2,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 10,
+    "cooldown": 5,
+    "trades": 11,
     "wins": 6
   },
   "macd_rsi": {
-    "cash": 19.674075760187407,
-    "btc": 0.11804751026878947,
+    "cash": 9614.182040622782,
+    "btc": 0.0,
     "stop": 82752.9,
     "target": 85459.52857142857,
     "entry": 83181.3,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 10,
+    "cooldown": 5,
+    "trades": 11,
     "wins": 7
   },
   "regime_adaptive": {
-    "cash": 18.979885990229377,
-    "btc": 0.11461946575127253,
+    "cash": 9334.867824455572,
+    "btc": 0.0,
     "stop": 82752.9,
     "target": 84385.55714285714,
     "entry": 82646.3,
     "start_cash": 10000.0,
-    "cooldown": 0,
-    "trades": 27,
+    "cooldown": 5,
+    "trades": 28,
     "wins": 11
   }
 }
